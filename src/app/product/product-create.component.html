@@ -1,0 +1,48 @@
+<form (ngSubmit)="saveProduct()" name="productForm" #productForm="ngForm" ngNativeValidate>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>
+                Create Product
+            </h3>
+        </div>
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-default pull-right page-action-btn" (click)="goBack()"><i
+                    class="glyphicon glyphicon-cancel"></i> Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success pull-right page-action-btn" *ngIf="!isEditMode"><i
+                    class="glyphicon glyphicon-floppy-disk"></i> Save
+            </button>&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success pull-right page-action-btn" *ngIf="isEditMode"><i
+                    class="glyphicon glyphicon-floppy-disk"></i> Update
+            </button>&nbsp;&nbsp;
+        </div>
+    </div>
+    <hr class="hr"/>
+    <div class="row">
+        <div class="col-md-3"><b>Name</b></div>
+        <div class="col-md-3">
+            <input type="text" class="form-control" [(ngModel)]="product.name" name="name" required/>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-3"><b>Code</b></div>
+        <div class="col-md-3">
+            <input type="text" class="form-control" [(ngModel)]="product.code" name="code" required/>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-3"><b>Price</b></div>
+        <div class="col-md-3">
+            <input type="number" class="form-control" [(ngModel)]="product.price" name="price" required/>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-3"><b>Description</b></div>
+        <div class="col-md-3">
+            <textarea class="form-control" rows="3" [(ngModel)]="product.description" name="description" required></textarea>
+        </div>
+    </div>
+</form>

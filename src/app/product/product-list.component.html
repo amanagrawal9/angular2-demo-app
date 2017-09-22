@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h3>
+      Create Product
+    </h3>
+  </div>
+  <div class="col-sm-6">
+    <button type="button" class="btn btn-success pull-right page-action-btn" (click)="createProduct()">
+      <i class="glyphicon glyphicon-plus"></i> Add Product
+    </button>
+  </div>
+</div>
+<table class="table table-bordered">
+  <tr>
+    <th>S. No.</th>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of products; let i = index" (click)="gotoDetail(product.id)" class="clickable">
+    <td>{{i + 1}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.code}}</td>
+    <td>{{product.description}}</td>
+    <td>${{product.price}}</td>
+    <td>
+      <button type="button" class="btn btn-info" (click)="editProduct(product.id)">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </button>
+      <button type="button" class="btn btn-danger" ng-click="deleteChannel(channel)">
+        <i class="glyphicon glyphicon-trash"></i>
+      </button>
+    </td>
+  </tr>
+</table>
